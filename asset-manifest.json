@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/algorand-dapp/static/css/main.a174681c.chunk.css",
-    "main.js": "/algorand-dapp/static/js/main.e94cbce8.chunk.js",
-    "main.js.map": "/algorand-dapp/static/js/main.e94cbce8.chunk.js.map",
+    "main.js": "/algorand-dapp/static/js/main.2ba15c44.chunk.js",
+    "main.js.map": "/algorand-dapp/static/js/main.2ba15c44.chunk.js.map",
     "runtime-main.js": "/algorand-dapp/static/js/runtime-main.a0c16d73.js",
     "runtime-main.js.map": "/algorand-dapp/static/js/runtime-main.a0c16d73.js.map",
     "static/css/2.3ef6efb2.chunk.css": "/algorand-dapp/static/css/2.3ef6efb2.chunk.css",
@@ -21,6 +21,6 @@
     "static/css/2.3ef6efb2.chunk.css",
     "static/js/2.15562b2d.chunk.js",
     "static/css/main.a174681c.chunk.css",
-    "static/js/main.e94cbce8.chunk.js"
+    "static/js/main.2ba15c44.chunk.js"
   ]
 }
