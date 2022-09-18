@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/algorand-dapp/static/css/main.a174681c.chunk.css",
+    "main.js": "/algorand-dapp/static/js/main.e94cbce8.chunk.js",
+    "main.js.map": "/algorand-dapp/static/js/main.e94cbce8.chunk.js.map",
+    "runtime-main.js": "/algorand-dapp/static/js/runtime-main.a0c16d73.js",
+    "runtime-main.js.map": "/algorand-dapp/static/js/runtime-main.a0c16d73.js.map",
+    "static/css/2.3ef6efb2.chunk.css": "/algorand-dapp/static/css/2.3ef6efb2.chunk.css",
+    "static/js/2.15562b2d.chunk.js": "/algorand-dapp/static/js/2.15562b2d.chunk.js",
+    "static/js/2.15562b2d.chunk.js.map": "/algorand-dapp/static/js/2.15562b2d.chunk.js.map",
+    "static/js/3.041e1b21.chunk.js": "/algorand-dapp/static/js/3.041e1b21.chunk.js",
+    "static/js/3.041e1b21.chunk.js.map": "/algorand-dapp/static/js/3.041e1b21.chunk.js.map",
+    "index.html": "/algorand-dapp/index.html",
+    "static/css/2.3ef6efb2.chunk.css.map": "/algorand-dapp/static/css/2.3ef6efb2.chunk.css.map",
+    "static/css/main.a174681c.chunk.css.map": "/algorand-dapp/static/css/main.a174681c.chunk.css.map",
+    "static/js/2.15562b2d.chunk.js.LICENSE.txt": "/algorand-dapp/static/js/2.15562b2d.chunk.js.LICENSE.txt",
+    "static/media/bootstrap-icons.css": "/algorand-dapp/static/media/bootstrap-icons.ea98e12d.woff2"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.a0c16d73.js",
+    "static/css/2.3ef6efb2.chunk.css",
+    "static/js/2.15562b2d.chunk.js",
+    "static/css/main.a174681c.chunk.css",
+    "static/js/main.e94cbce8.chunk.js"
+  ]
+}
