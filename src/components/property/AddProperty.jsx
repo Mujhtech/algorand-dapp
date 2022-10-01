@@ -106,7 +106,7 @@ const AddProperty = ({ createProperty }) => {
               handleClose();
             }}
           >
-            Save propery
+            Save property
           </Button>
         </Modal.Footer>
       </Modal>

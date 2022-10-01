@@ -19,14 +19,16 @@ const Property = ({
   deleteProperty,
   rateProperty,
 }) => {
-  const { title, image, location, price, bought, appId, owner } = property;
+  const { title, image, location, price, bought, appId, owner, buyer, rate } = property;
 
-  const [rate, setRate] = useState(property.rate);
+  const [propertyRating, setRate] = useState(rate)
+
+  const addr = bought === 1 ? buyer : owner
 
   const ratedIcon = () => {
-    if (property.rate > 5) {
+    if (propertyRating > 5) {
       return "bi bi-star-fill";
-    } else if (property.rate > 0) {
+    } else if (propertyRating > 0) {
       return "bi bi-star-half";
     } else {
       return "bi bi-star";
@@ -38,10 +40,18 @@ const Property = ({
       <Card className="h-100">
         <Card.Header>
           <Stack direction="horizontal" gap={2}>
+            <Identicon size={28} address={addr} />
             <span className="font-monospace text-secondary">
-              {truncateAddress(owner)}
+              Owner: {" "}
+              <a
+                  href={`https://testnet.algoexplorer.io/address/${addr}`}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                   {truncateAddress(addr)}
+                </a>
             </span>
-            <Identicon size={28} address={owner} />
+          
             <Badge
               bg={bought === 1 ? "success" : "secondary"}
               className="ms-auto"
@@ -67,7 +77,7 @@ const Property = ({
                 ? "Bought"
                 : `Buy for ${microAlgosToString(price)} ALGO`}
             </Button>
-            {property.owner === address && bought !== 1 && (
+            {owner === address && bought !== 1 && (
               <Button
                 variant="outline-danger"
                 onClick={() => deleteProperty(property)}
@@ -80,15 +90,15 @@ const Property = ({
               <>
                 <FloatingLabel
                   controlId="inputCount"
-                  label={property.rate > 0 ? "Rated" : "Rate"}
+                  label={propertyRating > 0 ? "Rated" : "Rate"}
                   className="w-25"
                 >
                   <Form.Control
                     type="number"
-                    value={rate}
+                    value={propertyRating}
                     min="1"
                     max="10"
-                    readOnly={property.rate > 0 || property.buyer !== address}
+                    readOnly={rate > 0 || buyer !== address}
                     onChange={(e) => {
                       setRate(Number(e.target.value));
                     }}
@@ -96,8 +106,8 @@ const Property = ({
                 </FloatingLabel>
                 <Button
                   variant="outline-secondary"
-                  onClick={() => rateProperty(property, rate)}
-                  disabled={property.rate > 0 || property.buyer !== address}
+                  onClick={() => rateProperty(property, propertyRating)}
+                  disabled={rate > 0 || buyer !== address}
                 >
                   <i className={ratedIcon()}></i>
                 </Button>

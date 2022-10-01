@@ -3,7 +3,7 @@ import { toast } from "react-toastify";
 import AddProperty from "./AddProperty";
 import Property from "./Property";
 import Loader from "../utils/Loader";
-import { NotificationError, NotificationSuccess } from "../utils/Notifications";
+import { NotificationError, NotificationSuccess, NotificationInfo } from "../utils/Notifications";
 import PropTypes from "prop-types";
 import { Row } from "react-bootstrap";
 import {
@@ -20,7 +20,7 @@ const Properties = ({ address, fetchBalance }) => {
 
   const getProperties = async () => {
     setLoading(true);
-    toast(<NotificationSuccess text="Fetching properties" />);
+    toast(<NotificationInfo text="Fetching properties" />);
     getPropertiesAction()
       .then((products) => {
         if (products) {
@@ -43,7 +43,7 @@ const Properties = ({ address, fetchBalance }) => {
     setLoading(true);
     createPropertyAction(address, data)
       .then(() => {
-        toast(<NotificationSuccess text="Propery added successfully." />);
+        toast(<NotificationSuccess text="Property added successfully." />);
         getProperties();
         fetchBalance(address);
       })
