@@ -13,7 +13,11 @@ import {
 /* eslint import/no-webpack-loader-syntax: off */
 import approvalProgram from "!!raw-loader!../contracts/property_contract_approval.teal";
 import clearProgram from "!!raw-loader!../contracts/property_contract_clear.teal";
-import { base64ToUTF8String, utf8ToBase64String } from "./conversions";
+import {
+  base64ToUTF8String,
+  getAddress,
+  utf8ToBase64String,
+} from "./conversions";
 
 class Property {
   constructor(
@@ -63,9 +67,8 @@ export const createPropertyAction = async (senderAddress, property) => {
   let image = new TextEncoder().encode(property.image);
   let location = new TextEncoder().encode(property.location);
   let price = algosdk.encodeUint64(property.price);
-  let owner = new TextEncoder().encode(senderAddress);
 
-  let appArgs = [title, image, location, owner, price];
+  let appArgs = [title, image, location, price];
 
   // Create ApplicationCreateTxn
   let txn = algosdk.makeApplicationCreateTxnFromObject({
@@ -118,8 +121,7 @@ export const buyPropertyAction = async (senderAddress, product) => {
 
   // Build required app args as Uint8Array
   let buyArg = new TextEncoder().encode("buy");
-  let buyer = new TextEncoder().encode(senderAddress);
-  let appArgs = [buyArg, buyer];
+  let appArgs = [buyArg];
 
   // Create ApplicationCallTxn
   let appCallTxn = algosdk.makeApplicationCallTxnFromObject({
@@ -338,7 +340,7 @@ const getApplication = async (appId) => {
 
     if (getField("BUYER", globalState) !== undefined) {
       let field = getField("BUYER", globalState).value.bytes;
-      buyer = base64ToUTF8String(field);
+      buyer = getAddress(field);
     }
 
     return new Property(
